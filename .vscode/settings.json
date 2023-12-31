@@ -3,5 +3,8 @@
     "${workspaceFolder}/src",
     "${VULKAN_SDK}/Include"
   ],
-  "C_Cpp.errorSquiggles": "disabled"
+  "C_Cpp.errorSquiggles": "disabled",
+  "files.associations": {
+    "functional": "cpp"
+  }
 }
