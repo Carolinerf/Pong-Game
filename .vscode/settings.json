@@ -2,5 +2,6 @@
   "C_Cpp.default.includePath": [
     "${workspaceFolder}/src",
     "${VULKAN_SDK}/Include"
-  ]
+  ],
+  "C_Cpp.errorSquiggles": "disabled"
 }
