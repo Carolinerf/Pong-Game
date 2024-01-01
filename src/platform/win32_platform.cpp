@@ -11,7 +11,7 @@ LRESULT CALLBACK platform_window_callback(HWND window, UINT msg, WPARAM wParam, 
   case WM_CLOSE:
     running = false;
     break;
-  
+
   default:
     break;
   }
@@ -36,14 +36,14 @@ bool platform_create_window(HWND *window)
   }
 
   *window = CreateWindowExA(
-    WS_EX_APPWINDOW,
-    "vulkan_engine_class",
-    "Pong",
-    WS_THICKFRAME | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_OVERLAPPED,
-    100, 100, 1600, 720, 0, 0, instance, 0
-  );
+      WS_EX_APPWINDOW,
+      "vulkan_engine_class",
+      "Pong",
+      WS_THICKFRAME | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_OVERLAPPED,
+      100, 100, 1600, 720, 0, 0, instance, 0);
 
-  if (window == 0) {
+  if (window == 0)
+  {
     MessageBoxA(0, "Failed creating window", "Error", MB_ICONEXCLAMATION | MB_OK);
     return false;
   }
@@ -53,7 +53,8 @@ bool platform_create_window(HWND *window)
   return true;
 }
 
-void platform_update_window(HWND window) {
+void platform_update_window(HWND window)
+{
   MSG msg;
 
   while (PeekMessageA(&msg, window, 0, 0, PM_REMOVE))
@@ -63,7 +64,7 @@ void platform_update_window(HWND window) {
   }
 }
 
-int main() 
+int main()
 {
   VkContext vkcontext = {};
 
@@ -78,10 +79,14 @@ int main()
     return -1;
   }
 
-  while (running) 
+  while (running)
   {
     platform_update_window(window);
+    if (!vk_render(&vkcontext))
+    {
+      return -1;
+    }
   }
-  
+
   return 0;
 }

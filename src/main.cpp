@@ -1,10 +1,9 @@
 #include <iostream>
 
-int main() 
+int main()
 {
-  
 
-    std::cout << "Successfully create vulkan instance" << std::endl;
+  std::cout << "Successfully create vulkan instance" << std::endl;
 
   return 0;
 }
